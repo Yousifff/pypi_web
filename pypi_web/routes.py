@@ -3,4 +3,4 @@ def includeme(config):
     config.add_route('home', '/')
     config.add_route('about', '/about')
     config.add_route('package_details', '/project/{package_name}')
-    config.add_route('package_details','/project/{package_name}/')
+    config.add_route('package_details/','/project/{package_name}/')
