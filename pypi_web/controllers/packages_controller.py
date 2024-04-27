@@ -10,7 +10,7 @@ from pyramid.httpexceptions import HTTPNotFound
 @view_config(route_name='package_details/',renderer='pypi_web:templates/packages/details.pt')
 def details(request: Request):
     package_name = request.matchdict.get('package_name')
-    if not package_name or package_name == 'gone':
+    if not package_name:
         raise HTTPNotFound()
-    return {'message': 'Hello World'}
+    return {'package_name': package_name}
 
