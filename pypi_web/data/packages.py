@@ -1,6 +1,12 @@
 import sqlalchemy as sa
 
-class Packages:
+from pypi_web.data.modelbase import SqlAlchemyBase
+
+
+class Packages(SqlAlchemyBase):
+
+    __tablename__ = 'packages'
+
     id = sa.Column(sa.String, primary_key=True)
     created_date = sa.Column(sa.DateTime)
     summary = sa.Column(sa.String)
@@ -14,3 +20,6 @@ class Packages:
     author_email = sa.Column(sa.String)
 
     license = sa.Column(sa.String)
+
+    def __repr__(self):
+        return f'<Packages {self.id}>'
