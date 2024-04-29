@@ -1,9 +1,9 @@
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from pypi_web.data.modelbase import SqlAlchemyBase
 import pypi_web.data.__all_models
+
 
 class DBSession:
     factory = None
@@ -17,7 +17,7 @@ class DBSession:
         if not db_file or not db_file.strip():
             raise Exception("You must specifiy a database file")
 
-        conn_str = 'sqlite:///'+db_file
+        conn_str = 'sqlite:///' + db_file
 
         print(f'Connecting to db at {conn_str}')
 
