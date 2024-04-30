@@ -1,5 +1,5 @@
 from pyramid.view import view_config
-
+from pypi_web.services import package_service, user_service
 
 def get_packages():
     return [
@@ -12,7 +12,10 @@ def get_packages():
 @view_config(route_name='home', renderer='pypi_web:templates/home/home_index.pt')
 def home_index(request):
     return {
-        'packages': get_packages()
+        'packages': get_packages(),
+        'package_count': package_service.package_count(),
+        'release_count' : package_service.release_count(),
+        'user_count': user_service.user_count()
     }
 
 
